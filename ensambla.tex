@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{float}
 \begin{document}
 \begin{titlepage}
 
@@ -43,20 +44,23 @@ María \textsc{Azofeifa}\\
 \end{titlepage}
 \section*{Introducción}
 \paragraph{}
-Parrafo con hablada
+En este resumen vamos a hablar acerca de la arquitectura de procesadores RISC. Primero desarrollaremos un poco la historia de como nació frente a una arquitectura ya establecida. Con esto empezamos a ver el contraste entre ambas tecnología que ampliaremos en el transcurso del documento. Hablaremos también de los detalles técnicos de la arquitectura así como la comparación de ventajas y desventajas de las arquitecturas RISC y CISC. Por último proponemos un pequeño ejemplo donde compararemos un mismo programa escrito en lenguaje ensamblador para CISC y otro para RISC.
 
 \section*{Historia de RISC}
 \paragraph{}
 Al tratar el tema de la arquitectura RISC es necesario hablar de CISC, por lo que estaremos haciendo comparaciones entre ambos a través del resumen. Las siglas CISC que se refieren a la arquitectura de computadoras con conjunto de instrucciones complejas y RISC la contraposición, cuyas siglas se refieren a un conjunto de instrucciones simples.
 
 \paragraph{}
-Al inicio la memoria era muy cara al igual que el acceso a ella (aún lo es) (Aletan S., 1992), debido a esto CISC se encargaba de usar la microprogramación dado que era barato sustituir funciones, las cuales antes se realizaban mediante una serie de instrucciones complejas que entendían y ejecutaban el microprograma. Pero los microprogramas empezaron a crecer. Entonces surge el miedo de que los diseños existentes alcanzaran los límites. Por lo tanto empezaron a surgir ideas como que un tamaño más pequeño podría dar un mejor rendimiento, al operar a más altas velocidades de reloj, la canalización (leer la instrucción que sigue justo cuando termine la última) y ejecutar en paralelo varios procesos. Estas ideas influenciaron la creación de RISC, el cual era apto para ellas, por su simple lógica.
+Al inicio la memoria era muy cara al igual que el acceso a ella (aún lo es) (Aletan S., 1992), debido a esto CISC se encargaba de usar la  dado que era barato sustituir funciones, las cuales antes se realizaban mediante una serie de instrucciones complejas que entendían y ejecutaban el microprograma. Pero los microprogramas empezaron a crecer. Entonces surge el miedo de que los diseños existentes alcanzaran los límites. Por lo tanto empezaron a surgir ideas como que un tamaño más pequeño podría dar un mejor rendimiento, al operar a más altas velocidades de reloj, la canalización (leer la instrucción que sigue justo cuando termine la última) y ejecutar en paralelo varios procesos. Estas ideas influenciaron la creación de RISC, el cual era apto para ellas, por su simple lógica.
 
 \paragraph{}
 El proyecto RISC comenzó en 1975 en el Centro de Investigación Watson de International Business Machines Corp TJ bajo la nombre de la 801. Este proyecto no era conocido por el mundo exterior de IBM hasta principios 1980. Surge como una alternativa a la arquitectura CISC. La idea de de esta nueva arquitectura era generar código eficiente con instrucciones más simples. Tanto en software (instrucciones) como en hardware (registros de memoria). John Cocke un investigador que en la época que trabajaba para IBM es considerado el padre de la arquitectura RISC, ya que el diseño se vio influenciado por sus ideas. Otros dos proyectos con objetivos similares se iniciaron en el principios de 1980 en la Universidad de California en Berkeley y la Universidad de Stanford (Oklobdzija V., 1999).
 
 \paragraph{}
-Debido a que CISC existía desde las más tempranas computadoras, la llegada de RISC causó estragos. ''Los defensores de RISC afirmaron que podían obtener más potencia de cálculo para una cantidad dada de hardware a través de una combinación de diseño conjunto de instrucciones simplificado, avanzado tecnología de compilación y ejecución pipeline del procesador. Los de CISC afirmaban que podían tener más poder computacional por una cantidad de hardware a través de una combinación de diseño conjunto de instrucciones simplificado, por lo que sus máquinas podrían lograr un mayor rendimiento general'' (Bryant \& O'Hallaron).
+Debido a que CISC existía desde las más tempranas computadoras, la llegada de RISC causó estragos.
+\begin{quote}
+''Los defensores de RISC afirmaron que podían obtener más potencia de cálculo para una cantidad dada de hardware a través de una combinación de diseño conjunto de instrucciones simplificado, avanzado tecnología de compilación y ejecución pipeline del procesador. Los de CISC afirmaban que podían tener más poder computacional por una cantidad de hardware a través de una combinación de diseño conjunto de instrucciones simplificado, por lo que sus máquinas podrían lograr un mayor rendimiento general'' (Bryant \& O'Hallaron).
+\end{quote}
 
 \paragraph{}
 Pero con el tiempo se dieron a conocer las deficiencias, o que sus características planteadas inicialmente no eran tan exactas a sus afirmaciones. RISC introdujo más instrucciones, muchas de las cuales llevan varios ciclos para ejecutar. Hoy tienen cientos de instrucciones en su repertorio, lo cual no concuerda tanto con su nombre. Aún así, el núcleo del diseño es un conjunto de instrucciones que se adapta bien a la ejecución en una máquina pipeline (técnica de implementación donde múltiples instrucciones se solapan en ejecución).
@@ -101,58 +105,47 @@ Es una arquitectura  de 32 bits desarrollada por British ARM Holdings. Diseñado
 \end{description}
 
 
+\section*{Diferencias entre CISC y RISC}
+\paragraph{}
+CISC (Complex instruction set computing) fue desarrollado basado en las limitaciones de la época. Dado que se programaba principalmente en lenguaje de ensamblador, tener instrucciones más complejas facilitaba esto. También intentaba tener todos los tipos de direccionamiento posible. Además, tomaba en cuenta el costo muy alto y la velocidad muy limitada de la memoria, por lo que esto ayudaba a limitar la cantidad de veces que era necesario accesar la memoria. De esta forma, al tener instrucciones más complejas implementadas con el hardware, los programas se hacían más cortos y tomaban menos espacio.
+
+\paragraph{}
+Las limitaciones que se enfrentaban significaban que por un momento CISC era la única opción razonable, por lo cual este nombre no apareció hasta después. Fue cuando surgió RISC (Reduced instruction set computing) facilitado por los avances que hacían la memoria más rápida y barata que se decidió este nombre y se creó esta división. RISC se desarrolló con las limitaciones de CISC en mente, por ejemplo:	
+\begin{itemize}
+\item Los compiladores generalmente ignoran instrucciones más complejas, por 	lo que no llegan a tener mucha utilidad.
+\item Las estructuras de datos más complejas no se usan frecuentemente, y se pueden crear usando estructuras simples cuando son necesarias.
+\item Las instrucciones de longitud y tiempo de ejecución variable hace que decodificar y planificar sea ineficiente.
+\end{itemize}
+
+\begin{center}
+\begin{table}[H]
+\begin{tabular}{| p{5cm} | p{5cm} |}
+\hline
+RISC & CISC \\ \hline
+$\star$ Busca menor cantidad de ciclos de reloj por instrucción & $\star$ Busca menor cantidad de instrucciones por programa \\
+$\star$ Instrucciones simples para tomar solo un ciclo de reloj & $\star$ Instrucciones más complejas que toman varios ciclos \\
+$\star$ Instrucciones de longitud definida & $\star$ Instrucciones de longitud variable\\
+$\star$ Hay instrucciones independientes para accesar la memoria y mover los datos guardados ahí a registros & $\star$ Se incorpora el acceso a la memoria dentro de otras instrucciones\\
+$\star$ Más espacio físico dedicado hacia un mayor número de registros & $\star$ Más espacio físico dedicado a guardar las instrucciones más complejas\\
+$\star$ Cantidad limitada de tipos de direccionamiento & $\star$ Solía ser predominante por límites de memoria\\
+$\star$ Duración de instrucciones facilita pipelining & $\star$ Facilitar el trabajo del compilador\\
+\vphantom{A} & $\star$ Intenta cubrir muchos tipos de direccionamiento\\
+\hline
+\end{tabular}
+\caption{Contraste entre RISC y CISC}
+\end{table}
+\end{center}
+\paragraph{}
+A pesar de todo esto, se ve en casos recientes que la distinción entre RISC y CISC no implica diferencias importantes en eficiencia. Estas son causadas por otros aspectos.
 
 
-
+\section*{Lenguaje ensamblador Cool}
 \paragraph{}
 Pare tener un ejemplo claro de las características de un lenguaje ensamblador para un procesador basado en un conjunto de instrucciones RISC proponemos hacer una comparación de código. Por un lado vamos a utilizar el lenguaje ensamblador que hemos venido trabajando en el curso. Para obtener el código ensamblador RISC vamos a usar el lenguaje Cool que nos dará la opción de generar el código de ensamblador Cool del programa.
 \paragraph{}
-El lenguaje de programación Cool, \textit{Classroom Object-Oriented Language} fue creado para ser utilizado en un curso de la Universidad de Virginia. Creado por Alex Aiken para ser una herramienta simple pero poderosa a la vez para iniciar a sus estudiantes en programación. Cool es un subconjunto de Java, que contiene todos los elementos característicos del paradigma orientado a objetos. Escogimos este lenguaje porque nos permite generar el código ensamblador del programa de una manera similar a la de gcc.
+El lenguaje de programación Cool, \textit{Classroom Object-Oriented Language} fue creado para utilizarse en un curso de la Universidad de Virginia. Desarrollado por Alex Aiken para ser una herramienta simple pero poderosa a la vez para iniciar a los estudiantes en programación. Cool es un subconjunto de Java que contiene todos los elementos característicos del paradigma orientado a objetos. Escogimos este lenguaje porque nos permite generar el código ensamblador del programa de una manera similar a la de gcc.
 \paragraph{}
-La estructura del lenguaje ensamblador Cool es fácil de comprender para alguien familiarizado con el lenguaje de ensamblador para arquitectura CISC que hemos estado utlizando en el curso. Cool posee 11 registros en total más un conjunto de instrucciones muy pequeño y que podemos mostrar en la Tabla 1.
-\begin{center}
-\begin{table}
-\begin{tabular}{| l | l | p{5cm} |}
-\hline
-Tipo & Operación & Descripción \\ \hline
-registro & r0 & registro de propósito general \#0, usualmente se usa como acumulador \\ \hline
-registro & r1 & registro de propósito general \#1 \\ \hline
-registro & r2 & \\ \hline
-registro & r3 &  \\ \hline
-registro & r4 &  \\ \hline
-registro & r5 &  \\ \hline
-registro & r6 &  \\ \hline
-registro & r7 &  \\ \hline
-registro & sp & puntero a la pila \\ \hline
-registro & fp & puntero marco pila \\ \hline
-registro & ra & dirección de retorno \\ \hline
-instrucción & li registro $<$- integer & cargue en registro  \\ \hline 
-instrucción & mov registro $<$- registro & copia de registro a registro  \\ \hline
-instrucción & add registro $<$- registro registro & suma\\ \hline
-instrucción & sub registro $<$- registro registro & resta\\ \hline
-instrucción & mul registro $<$- registro registro & multiplicación\\ \hline
-instrucción & div registro $<$- registro registro & división \\ \hline
-instrucción & jmp label & salto incondicional \\ \hline
-instrucción & bz registro label & salte si es igual a cero\\ \hline 
-instrucción & bnz registro label & salte si no es cero  \\ \hline
-instrucción & beq registro registro label & salte si son iguales  \\ \hline
-instrucción & blt registro registro label & salte si menor que  \\ \hline
-instrucción & ble registro registro label & salte si menor o igual que \\ \hline
-instrucción & call label & llamado directo a función \\ \hline
-instrucción & call registro & llamado indirecto función en registro \\ \hline
-instrucción & return & retorno de función \\ \hline
-instrucción & push registro & empuje un valor a la pila\\ \hline
-instrucción & pop registro & saque un valor de la pila \\ \hline
-instrucción & ld registro $<$- registro [ integer ] & cargue un dato de memoria  \\ \hline
-instrucción & st registro [ integer ] $<$- registro & almacene un dato en la memoria \\ \hline
-instrucción & la registro $<$- label & cargue dirección en registro\\ \hline
-instrucción & alloc registro registro & asiganción memoria  \\ \hline
-instrucción & syscall name & interrupción para un servicio de sistema operativo\\
-\hline 
-\end{tabular}
-\caption{referencia blabla}
-\end{table}
-\end{center}
+La estructura del lenguaje ensamblador Cool es fácil de comprender para alguien familiarizado con el lenguaje de ensamblador para arquitectura CISC que hemos estado utilizando en el curso. Cool posee 11 registros en total más un conjunto de instrucciones muy pequeño y que podemos mostrar en la Tabla 2.
 
 \paragraph{}
 Como vemos este lenguaje (y en general la arquitectura RISC) comparte instrucciones básicas como operaciones aritméticas, 
@@ -223,48 +216,76 @@ Main.main.end:          \\
 \vphantom{A} \hspace{2cm} return\\
 \end{quote}
 
-Veamos este ejemplo por partes. Las etiquetas funcionan igual en ambos lenguajes. En el prólogo de Cool se guarda el estado anterior con \textit{mov fp $<$- sp pop r0}, luego abre espacio en memoria con \textit{sub sp $<$- sp r2} y se guarda la dirección de retorno en la pila. Las instrucciones \textit{la r1 $<$- l3 ld r1 $<$- r1[3]} se traen al registro r1 la hilera que se va a imprimir, luego se llama a la interrupción del sistema que imprime la hilera y se procede con el epilogo que restaura el ebp viejo con \textit{ld r1 $<$- fp[0] st fp[0] $<$- r1}, restaura la dirección de retorno con \textit{pop ra} y termina el epílogo con \textit{li r2 $<$- 2 add sp $<$- sp r2 return}.
-
-Las similitudes entre ambas arquitecturas son mayores en cuanto a la estructura básica. Sin embargo, las instrucciones CISC son más robustas y complejas mientras que en RISC al ser un conjunto de operaciones más pequeño la tarea de programar se vuelve un poco más tediosa. Blabla conclusiones
-
-\section*{Diferencias entre CISC y RISC}
 \paragraph{}
-CISC(Complex instruction set computing) fue desarrollado basado en las limitaciones de la época. Dado que se programaba principalmente en lenguaje de ensamblador, tener instrucciones más complejas facilitaba esto. También intentaba tener todos los tipos de direccionamiento posible. Además, tomaba en cuenta el costo muy alto y la velocidad muy limitada de la memoria, por lo que esto ayudaba a limitar la cantidad de veces que era necesario accesar la memoria. De esta forma, al tener instrucciones más complejas implementadas con el hardware, los programas se hacían más cortos y tomaban menos espacio.
+Veamos este ejemplo por partes. El prólogo y el epílogo son muy similares entre ellos. Las operaciones de sumarle y restarle a la pila son iguales a excepción que podemos que no es permitido hacer la operación \textit{sub sp $<$- sp 2} porque coo ya hemos visto las operaciones son registro-registro. En consecuencia primero debemos cargar el entero a un registro y luego realizar la operación debida. Eso se ve reflejado también en las operaciones de almacenar en la memoria.
 
 \paragraph{}
-Las limitaciones que se enfrentaban significaban que por un momento CISC era la única opción razonable, por lo cual este nombre no apareció hasta después. Fue cuando surgió RISC(Reduced instruction set computing) facilitado por los avances que hacían la memoria más rápida y barata que se decidió este nombre y se creó esta división. RISC se desarrolló con las limitaciones de CISC en mente, por ejemplo:	
-\begin{itemize}
-\item Los compiladores generalmente ignoran instrucciones más complejas, por 	lo que no llegan a tener mucha utilidad.
-\item Las estructuras de datos más complejas no se usan frecuentemente, y se pueden crear usando estructuras simples cuando son necesarias.
-\item Las instrucciones de longitud y tiempo de ejecución variable hace que decodificar y planificar sea ineficiente.
-\end{itemize}
+En el caso de Cool, el manejo de hileras en consola se hace por medio de una interrupción. Nótese que la clase Main hereda de una clase IO que contiene el método out\_string. Uno espera que out\_string se vea reflejado en ensamblador como un call a una función pero más bien se maneja a nivel de interrupción.
+
+\paragraph{}
+A nivel de hileras podemos ver que en el ensamblador normal la dirección \$0x8048494 apunta a una hilera en el programa. En el lenguaje Cool se hace referencia a una etiqueta l3, que luego se direcciona sumándole 4 posiciones. Esto hace referencia a la etiqueta l5 que a su vez punta a la hilera que se desea imprimir.
+
+\paragraph{}
+Las similitudes entre ambas arquitecturas son mayores en cuanto a la estructura básica. Sin embargo, las instrucciones CISC son más robustas y complejas mientras que en RISC al ser un conjunto de operaciones más pequeño la tarea de programar se vuelve un poco más tediosa. Si se desea ver más ejemplos sobre el lenguaje Cool puede visitar este enlace http://www.cs.virginia.edu/~cs415/cool.html para descargar el compilador de Cool y código de ejemplo. También puede ser útil el manual de referencia del lenguaje ensamblador Cool http://www.cs.virginia.edu/~cs415/cool-manual/node51.html.
+
 \begin{center}
 \begin{table}
-\begin{tabular}{| p{5cm} | p{5cm} |}
+\begin{tabular}{| l | l | p{5cm} |}
 \hline
-RISC & CISC \\ \hline
-$\star$ Busca menor cantidad de ciclos de reloj por instrucción & $\star$ Busca menor cantidad de instrucciones por programa \\
-$\star$ Instrucciones simples para tomar solo un ciclo de reloj & $\star$ Instrucciones más complejas que toman varios ciclos \\
-$\star$ Instrucciones de longitud definida & $\star$ Instrucciones de longitud variable\\
-$\star$ Hay instrucciones independientes para accesar la memoria y mover los datos guardados ahí a registros & $\star$ Se incorpora el acceso a la memoria dentro de otras instrucciones\\
-$\star$ Más espacio físico dedicado hacia un mayor número de registros & $\star$ Más espacio físico dedicado a guardar las instrucciones más complejas\\
-$\star$ Cantidad limitada de tipos de direccionamiento & $\star$ Solía ser predominante por límites de memoria\\
-$\star$ Duración de instrucciones facilita pipelining & $\star$ Facilitar el trabajo del compilador\\
-\vphantom{A} & $\star$ Intenta cubrir muchos tipos de direccionamiento\\
-\hline
+Tipo & Operación & Descripción \\ \hline
+registro & r0 & registro de propósito general \#0, usualmente se usa como acumulador \\ \hline
+registro & r1 & registro de propósito general \#1 \\ \hline
+registro & r2 & \\ \hline
+registro & r3 &  \\ \hline
+registro & r4 &  \\ \hline
+registro & r5 &  \\ \hline
+registro & r6 &  \\ \hline
+registro & r7 &  \\ \hline
+registro & sp & puntero a la pila \\ \hline
+registro & fp & puntero marco pila \\ \hline
+registro & ra & dirección de retorno \\ \hline
+instrucción & li registro $<$- integer & cargue en registro  \\ \hline 
+instrucción & mov registro $<$- registro & copia de registro a registro  \\ \hline
+instrucción & add registro $<$- registro registro & suma\\ \hline
+instrucción & sub registro $<$- registro registro & resta\\ \hline
+instrucción & mul registro $<$- registro registro & multiplicación\\ \hline
+instrucción & div registro $<$- registro registro & división \\ \hline
+instrucción & jmp label & salto incondicional \\ \hline
+instrucción & bz registro label & salte si es igual a cero\\ \hline 
+instrucción & bnz registro label & salte si no es cero  \\ \hline
+instrucción & beq registro registro label & salte si son iguales  \\ \hline
+instrucción & blt registro registro label & salte si menor que  \\ \hline
+instrucción & ble registro registro label & salte si menor o igual que \\ \hline
+instrucción & call label & llamado directo a función \\ \hline
+instrucción & call registro & llamado indirecto función en registro \\ \hline
+instrucción & return & retorno de función \\ \hline
+instrucción & push registro & empuje un valor a la pila\\ \hline
+instrucción & pop registro & saque un valor de la pila \\ \hline
+instrucción & ld registro $<$- registro [ integer ] & cargue un dato de memoria  \\ \hline
+instrucción & st registro [ integer ] $<$- registro & almacene un dato en la memoria \\ \hline
+instrucción & la registro $<$- label & cargue dirección en registro\\ \hline
+instrucción & alloc registro registro & asiganción memoria  \\ \hline
+instrucción & syscall name & interrupción para un servicio de sistema operativo\\
+\hline 
 \end{tabular}
+\caption{Registros e instrucciones del ensablador Cool (Weimwe W., s.f)}
 \end{table}
 \end{center}
+
 \begin{thebibliography}{X}
 \bibitem{}\textsc{Aletan S.} (1992). \textit{An Overview of RISC Architecture} New York: ACM
+\bibitem{}\textsc{Blem E., Menon J., Sankaralingam K.} (2013). \textit{Power Struggles: Revisiting the RISC vs. CISC Debate on Contemporary ARM and x86 Architectures} IEEE International Symposium on High Performance Computer Architecture.
 \bibitem{} \textsc{Bryant R., O’Hallaron D.} (2003). \textit{Computer Systems A Programmer’s Perspective} Pearson Education
 \bibitem{}\textsc{Dandamudi, S.} (2005). \textit{Guide to RISC processors.} USA: Springer
 \bibitem{Espeso} \textsc{Espeso, P} (2012). \textit{CISC frente a RISC, una batalla en blanco y negro}. Xataka
 \bibitem{}\textsc{Flynn, M.} (1995). \textit{Computer Architecture: Pipelined and Parallel Processor Design.} USA: Jones and Bartlett Publishers
 \bibitem{}\textsc{IBM} (2005). \textit{PowerPC User Instruction Set Architecture. Book I} 
+\bibitem{}\textsc{Jain P.} (2012). \textit{RISC \& CISC architecture} Engineer's Garage.
 \bibitem{}\textsc{Oklobdzija V.} (1999). \textit{Reduced Instruction Set Computers.} California: Integration Berkeley
 \bibitem{}\textsc{Patterson D., Hennessy J.} (2004). \textit{Estructura y diseño de computadores.} España: Reverté
 \bibitem{}\textsc{Yiu, J.} (2013). \textit{The Definitive Guide to the ARM Cortex-M3 and Cortex-M4 Processors.} Newnes
+\bibitem{}\textsc{Weimer W.} (s.f.). \textit{The Cool Reference Manual} http://www.cs.virginia.edu/~cs415/cool-manual/cool-manual.html
+\bibitem{} \textit{CS 4610 - Programming Languages - Cool} http://www.cs.virginia.edu/~cs415/cool.html
 \end{thebibliography}
 
 \end{document}
