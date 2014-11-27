@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.26)  26 NOV 2014 23:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.26)  27 NOV 2014 07:18
 entering extended mode
 **ensambla.tex
 (C:\Users\Emmanuel\Desktop\brete_ensambla\ensambla.tex
@@ -424,8 +424,22 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 237.
- [7] [8]
-(C:\Users\Emmanuel\Desktop\brete_ensambla\ensambla.aux)
+
+Underfull \hbox (badness 5417) in paragraph at lines 247--247
+[]$\OML/cmm/m/it/10 ?$ \OT1/cmr/m/n/10 In-struc-ciones sim-ples para
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]$\OML/cmm/m/it/10 ?$ \OT1/cmr/m/n/10 In-struc-ciones de lon-gi-tud
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 251--252
+[]$\OML/cmm/m/it/10 ?$ \OT1/cmr/m/n/10 Sola ser pre-dom-i-nante por
+ []
+
+[7] [8] (C:\Users\Emmanuel\Desktop\brete_ensambla\ensambla.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -447,7 +461,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ensambla.pdf (9 pages, 152754 bytes).
+Output written on ensambla.pdf (9 pages, 154180 bytes).
 PDF statistics:
  68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

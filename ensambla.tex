@@ -237,9 +237,24 @@ Las limitaciones que se enfrentaban significaban que por un momento CISC era la 
 \item Los compiladores generalmente ignoran instrucciones más complejas, por 	lo que no llegan a tener mucha utilidad.
 \item Las estructuras de datos más complejas no se usan frecuentemente, y se pueden crear usando estructuras simples cuando son necesarias.
 \item Las instrucciones de longitud y tiempo de ejecución variable hace que decodificar y planificar sea ineficiente.
-\item
-
 \end{itemize}
+\begin{center}
+\begin{table}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+\hline
+RISC & CISC \\ \hline
+$\star$ Busca menor cantidad de ciclos de reloj por instrucción & $\star$ Busca menor cantidad de instrucciones por programa \\
+$\star$ Instrucciones simples para tomar solo un ciclo de reloj & $\star$ Instrucciones más complejas que toman varios ciclos \\
+$\star$ Instrucciones de longitud definida & $\star$ Instrucciones de longitud variable\\
+$\star$ Hay instrucciones independientes para accesar la memoria y mover los datos guardados ahí a registros & $\star$ Se incorpora el acceso a la memoria dentro de otras instrucciones\\
+$\star$ Más espacio físico dedicado hacia un mayor número de registros & $\star$ Más espacio físico dedicado a guardar las instrucciones más complejas\\
+$\star$ Cantidad limitada de tipos de direccionamiento & $\star$ Solía ser predominante por límites de memoria\\
+$\star$ Duración de instrucciones facilita pipelining & $\star$ Facilitar el trabajo del compilador\\
+\vphantom{A} & $\star$ Intenta cubrir muchos tipos de direccionamiento\\
+\hline
+\end{tabular}
+\end{table}
+\end{center}
 \begin{thebibliography}{X}
 \bibitem{}\textsc{Aletan S.} (1992). \textit{An Overview of RISC Architecture} New York: ACM
 \bibitem{} \textsc{Bryant R., O’Hallaron D.} (2003). \textit{Computer Systems A Programmer’s Perspective} Pearson Education
